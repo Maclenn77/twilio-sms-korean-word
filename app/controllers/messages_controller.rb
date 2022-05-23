@@ -5,10 +5,11 @@ class MessagesController < ApplicationController
   def reply
     message_body = params["Body"]
     from_number = params["From"]
+    phone = ENV['TWILIO_NUMBER']
     boot_twilio
     random_word
     sms = @client.messages.create(
-      from: Rails.application.credentials.twilio_number,
+      from: phone,
       to: from_number,
       body: "Learn a new Korean word! #{@word.korean_word} (pronounced #{@word.romanja}) means #{@word.translation}"
     )
