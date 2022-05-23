@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
       to: from_number,
       body: "Learn a new Korean word! #{@word.korean_word} (pronounced #{@word.romanja}) means #{@word.translation}"
     )
-
+    render xml: sms
   end
 
   private

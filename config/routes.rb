@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/help'
   get 'static_pages/support'
+  
   resource :messages do
     collection do
       post 'reply'
