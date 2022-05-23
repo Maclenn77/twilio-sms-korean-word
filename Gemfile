@@ -28,7 +28,7 @@ gem 'twilio-ruby'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :production do
-  gem 'pg,'1.1.4'
+  gem 'pg', '1.1.4'
 end
 
 group :development, :test do
