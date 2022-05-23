@@ -17,9 +17,9 @@ class MessagesController < ApplicationController
   private
 
   def boot_twilio
-    @phone = ENV['TWILIO_NUMBER']  
-    account_sid = ENV['TWILIO_SID']
-    auth_token = ENV['TWILIO_TOKEN']
+    @phone = Rails.application.credentials.TWILIO_NUMBER || ENV['TWILIO_NUMBER']  
+    account_sid = Rails.application.credentials.TWILIO_SID || ENV['TWILIO_SID']
+    auth_token = Rails.application.credentials.TWILIO_TOKEN || ENV['TWILIO_TOKEN']
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
