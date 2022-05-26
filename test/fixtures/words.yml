@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  korean_word: MyString
-  romanja: MyString
-  translation: MyString
+  korean_word: '하나'
+  romanja: 'hana'
+  translation: 'one'
 
 two:
-  korean_word: MyString
-  romanja: MyString
-  translation: MyString
+  korean_word: '둘'
+  romanja: 'dul'
+  translation: 'two'
