@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.fi
 
 Word.create([{korean_word: '가방', romanja: 'gabang', translation:'bag'}, 
-                           {korean_word: '의자', romanja: 'uija', translation: 'chair'},
-			   {korean_word: '과일', romanja: 'gwail', translation: 'fruit'}] 
+            {korean_word: '의자', romanja: 'uija', translation: 'chair'},
+		    {korean_word: '과일', romanja: 'gwail', translation: 'fruit'}] 
 )
+
+Number.create([{korean_word: '하나', romanja: 'hana', translation:'one', variant:'Korean'},
+               {korean_word: '둘', romanja: 'dul', translation:'two', variant:'Korean'},
+               {korean_word: '셋', romanja: 'set', translation:'three', variant:'Korean'},
+               {korean_word: '일', romanja: 'il', translation:'one', variant:'Sino-Korean'},
+               {korean_word: '이', romanja: 'i', translation:'two', variant:'Sino-Korean'},
+               {korean_word: '삼', romanja: 'sam', translation:'three', variant:'Sino-Korean'}, ])

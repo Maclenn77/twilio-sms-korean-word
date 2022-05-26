@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     sms = @client.messages.create(
       from: @phone,
       to: from_number,
-      body: "Learn a new Korean word! " + reply_message
+      body: "Learn a new Korean word! " + reply_message(message_body)
     )
   end
 
@@ -24,18 +24,14 @@ class MessagesController < ApplicationController
   end
 
   def learn word_or_number
-    if word_or_number == 'word'
-      return random_word
-    elsif word_or_number = 'number'
-      return random_number
-    end
+    return random_number if word_or_number == 'number'
 
-    @result = [random_number, random_word].shuffle[0]
+    random_word
 
   end
 
   def random_number
-    Word.order('RANDOM()').first
+    Number.order('RANDOM()').first
   end
   
   def help
