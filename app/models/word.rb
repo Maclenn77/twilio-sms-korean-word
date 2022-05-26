@@ -6,6 +6,6 @@ class Word < ApplicationRecord
     validates :translation, presence: true
 
     def message
-      "#{@word.korean_word} (pronounced #{@word.romanja}) means #{@word.translation}. Visit our webpage morning-crag-46272.herokuapp.com/"
+      "#{self.korean_word} (pronounced #{self.romanja}) means '#{self.translation}'. Visit our webpage morning-crag-46272.herokuapp.com/"
     end
 end
