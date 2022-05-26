@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_062146) do
+ActiveRecord::Schema.define(version: 2022_05_26_075713) do
+
+  create_table "numbers", force: :cascade do |t|
+    t.string "korean_word"
+    t.string "romanja"
+    t.string "translation"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "words", force: :cascade do |t|
     t.string "korean_word"
@@ -18,6 +27,8 @@ ActiveRecord::Schema.define(version: 2022_05_23_062146) do
     t.string "translation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
+    t.string "variant"
   end
 
 end

@@ -23,11 +23,36 @@ class MessagesController < ApplicationController
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
-  def reply_message
-    
+  def learn word_or_number
+    if word_or_number == 'word'
+      return random_word
+    elsif word_or_number = 'number'
+      return random_number
+    end
+
+    @result = [random_number, random_word].shuffle[0]
+
+  end
+
+  def random_number
+    Word.order('RANDOM()').first
+  end
+  
+  def help
+    "Send a message to #{@phone}. Learn a new word sending 'learn word' or learn a new number sending 'learn number'
+    Learn how to use this service writing 'help' or visit our webpage morning-crag-46272.herokuapp.com/"
+  end
+
+  def reply_message message_body
+    instructions = message_body.split(' ')
+    if instructions[0].downcase == 'help'
+      return help
+    elsif instructions[0].downcase == 'learn'
+      return learn instructions[1].downcase
+    end
   end
 
   def random_word
-    @word = Word.order('RANDOM()').first
+    Word.order('RANDOM()').first
   end
 end
