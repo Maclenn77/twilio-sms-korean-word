@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     sms = @client.messages.create(
       from: @phone,
       to: from_number,
-      body: "Learn a new Korean word! #{@word.korean_word} (pronounced #{@word.romanja}) means #{@word.translation}"
+      body: "Learn a new Korean word! " + reply_message
     )
   end
 
@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
   
   def help
     "Send a message to #{@phone}. Learn a new word sending 'learn word' or learn a new number sending 'learn number'
-    Learn how to use this service writing 'help' or visit our webpage morning-crag-46272.herokuapp.com/"
+    Learn how to use this service writing 'help'. Visit our webpage morning-crag-46272.herokuapp.com/"
   end
 
   def reply_message message_body
