@@ -10,6 +10,36 @@
   </head>
 
   <body>
+  <nav class="fixed-top navbar navbar-inverse navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Learn Korean', root_path, class: "btn btn-lg btn-outline-light" %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="d-inline-flex align-items-center ">
+      <%= link_to "About", static_pages_help_path, class: "btn btn-lg btn-outline-light mx-1" %>
+      <%= link_to "Support", static_pages_support_path, class: "btn btn-lg btn-outline-light mx-1" %>
+      </li>
+    </ul>
+  </div>
+  </nav>
+
     <%= yield %>
+
+  <footer class="footer p-5 container">
+  <div class="row">
+    <div class="contact col border-end">
+      <h2>Ask for a demo</h2>
+      <p>Activate your number and learn new Korean words!</p>
+      <a class="btn btn-dark btn-lg" href="#" role="button">Contact me</a>
+    </div>
+    <div class="col">
+      <ul>
+        <li> Created by J.P. Pérez Tejada</>
+        <li> Github Repository </>
+      </ul>
+    </div>
+  <div>  
+  </footer>
   </body>
 </html>

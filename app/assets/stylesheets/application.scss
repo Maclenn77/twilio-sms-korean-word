@@ -17,6 +17,11 @@
 @import 'bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600&family=Gowun+Dodum&display=swap');
 
+.main {
+  width: 0 !important;
+  padding: 0;
+}
+
 .jumbotron {
   background-image: image-url("background.jpg");
   background-repeat: no-repeat;
@@ -28,5 +33,9 @@
 }
 
 .demo {
-  background-color: #898989;
+  background-image: linear-gradient(to bottom, #898989, #a1a1a1, #bababa, #d4d4d4, #eeeeee);
+}
+
+blockquote {
+  font-family: 'Gowun Dodum', sans-serif;
 }
