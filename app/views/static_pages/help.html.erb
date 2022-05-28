@@ -1,6 +1,30 @@
 <main class="mt-4 p-3">
-<h1 class="mt-5">Send a message and receive a Korean word</h1>
-<p class="lead"> Learn Korean words through SMS messages</p>
-<hr class="my-4">
-<p>When you </p>
+  <h1 class="mt-5 display-4">Send a message and receive a Korean word</h1>
+  <p class="lead fs-2"> Learn Korean words through SMS messages</p>
+  
+  <hr class="my-4">
+  <div class="container">
+    <div class="row">
+    <article class="col-md-8 border-end-md">
+       <p>When you </p>
+    </article>
+    <aside class="fs-2 col-md-4">
+      <div class="text-center mb-4 pb-2">
+              <%= image_tag "Hangul.png", width: "100", alt: "Hangul" %>
+            </div>
+
+            <figure class="text-center mb-0">
+              <blockquote class="blockquote">
+                <p class="pb-3">
+                  <i class="fas fa-quote-left fa-xs text-primary"></i>
+                  <span class="lead font-italic fs-2"> <%= random_word.message %> </span>
+                  <i class="fas fa-quote-right fa-xs text-primary"></i>
+                </p>
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0">
+                A different message each time!
+              </figcaption>
+            </figure>
+    </aside>
+  </div>
 </main>
