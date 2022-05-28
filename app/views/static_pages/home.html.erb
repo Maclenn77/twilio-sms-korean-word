@@ -1,2 +1,40 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<section class="jumbotron container-fluid bg-light p-5">
+  <h1 class="display-2 my-5">Learn Korean with SMS Messages!</h1>
+  <p class="lead fw-bold fs-3">Send a SMS message and learn a new Korean word or number.</p>
+  <hr class="my-4">
+  <p class="mb-5""> Try this message service sending "learn word" or "learn number" or any other text that you prefer</p>
+  <%= link_to 'Learn more', about_path, class: "btn btn-lg btn-dark", role: "button"%>
+</section>
+<section class="p-5 demo">
+  <h2 class="text-white">Receive a random word with its meaning</h2>
+  <hr class="my-2" >
+  <p class="text-white"> Send a SMS message to the phone number <%= phone_number %> and receive a random Korean word. You should activate your number first. </p>
+  <div class="container py-3">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-3">
+
+            <div class="text-center mb-4 pb-2">
+              <%= image_tag "Hangul.png", width: "100", alt: "Hangul" %>
+            </div>
+
+            <figure class="text-center mb-0">
+              <blockquote class="blockquote">
+                <p class="pb-3">
+                  <i class="fas fa-quote-left fa-xs text-primary"></i>
+                  <span class="lead font-italic fs-2"> <%= random_word.message %> </span>
+                  <i class="fas fa-quote-right fa-xs text-primary"></i>
+                </p>
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0">
+                A different message each time!
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -17,38 +17,25 @@ class MessagesController < ApplicationController
   private
 
   def boot_twilio
-    @phone = Rails.application.credentials.TWILIO_NUMBER || ENV['TWILIO_NUMBER']  
-    account_sid = Rails.application.credentials.TWILIO_SID || ENV['TWILIO_SID']
-    auth_token = Rails.application.credentials.TWILIO_TOKEN || ENV['TWILIO_TOKEN']
+    @phone = ENV['TWILIO_NUMBER'] || Rails.application.credentials.TWILIO_NUMBER
+    account_sid = ENV['TWILIO_SID'] || Rails.application.credentials.TWILIO_SID
+    auth_token = ENV['TWILIO_TOKEN'] || Rails.application.credentials.TWILIO_TOKEN
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
-  def learn word_or_number
-    return random_number if word_or_number == 'number'
+  def learn(word_or_number = nil)
+    return helpers.random_number if word_or_number == 'number'
 
-    random_word
+    helpers.random_word
 
-  end
-
-  def random_number
-    Number.order('RANDOM()').first
-  end
-  
-  def help
-    "Send a message to #{@phone}. Learn a new word sending 'learn word' or learn a new number sending 'learn number'
-    Learn how to use this service writing 'help'. Visit our webpage morning-crag-46272.herokuapp.com/"
   end
 
   def reply_message message_body
-    instructions = message_body.split(' ')
+    instructions = message_body[:Body].split(' ')
     if instructions[0].downcase == 'help'
-      return help
+      return helpers.help
     elsif instructions[0].downcase == 'learn'
       return learn instructions[1].downcase
     end
-  end
-
-  def random_word
-    Word.order('RANDOM()').first
   end
 end
