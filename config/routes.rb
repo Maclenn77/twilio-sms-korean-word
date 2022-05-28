@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
 
-  get 'static_pages/help'
-  get 'static_pages/support'
+  get 'about', to: 'static_pages#help'
+  get 'support', to: 'static_pages#support'
   
   resource :messages do
     collection do
