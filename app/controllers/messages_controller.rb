@@ -17,13 +17,13 @@ class MessagesController < ApplicationController
   private
 
   def boot_twilio
-    @phone = Rails.application.credentials.TWILIO_NUMBER || ENV['TWILIO_NUMBER']  
-    account_sid = Rails.application.credentials.TWILIO_SID || ENV['TWILIO_SID']
-    auth_token = Rails.application.credentials.TWILIO_TOKEN || ENV['TWILIO_TOKEN']
+    @phone = ENV['TWILIO_NUMBER'] || Rails.application.credentials.TWILIO_NUMBER
+    account_sid = ENV['TWILIO_SID'] || Rails.application.credentials.TWILIO_SID
+    auth_token = ENV['TWILIO_TOKEN'] || Rails.application.credentials.TWILIO_TOKEN
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
-  def learn word_or_number
+  def learn(word_or_number = nil)
     return random_number if word_or_number == 'number'
 
     random_word
