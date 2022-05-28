@@ -14,5 +14,19 @@
  *= require_self
  */
 
- @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600&family=Gowun+Dodum&display=swap');
 
+.jumbotron {
+  background-image: image-url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo Paaji 2', cursive;
+}
+
+.demo {
+  background-color: #898989;
+}
