@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     sms = @client.messages.create(
       from: @phone,
       to: from_number,
-      body: "Learn a new Korean word! " + message_body
+      body: "Learn a new Korean word! " + reply_message(message_body)
     )
   end
 
@@ -23,19 +23,20 @@ class MessagesController < ApplicationController
   end
 
   def learn(word_or_number = nil)
-    return helpers.random_number if word_or_number == 'number'
+    return helpers.random_number.message if word_or_number == 'number'
 
-    helpers.random_word
+    helpers.random_word.message
 
   end
 
   def reply_message message_body
-    return message_body
-    instructions = message_body.split(' ')
+    instructions = message_body.to_s.split(' ')
     if instructions[0].downcase == 'help'
-      return helpers.help
+      reply = helpers.help
     elsif instructions[0].downcase == 'learn'
-      return learn instructions[1].downcase
+      reply = learn instructions[1].downcase
     end
+
+    reply
   end
 end
