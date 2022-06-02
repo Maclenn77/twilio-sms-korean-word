@@ -6,11 +6,10 @@ class MessagesController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
     boot_twilio
-    random_word
     sms = @client.messages.create(
       from: @phone,
       to: from_number,
-      body: "Learn a new Korean word! " + reply_message(message_body)
+      body: "Learn a new Korean word! " + message_body.to_s
     )
   end
 
@@ -31,7 +30,8 @@ class MessagesController < ApplicationController
   end
 
   def reply_message message_body
-    instructions = message_body[:Body].split(' ')
+    return message_body
+    instructions = message_body.split(' ')
     if instructions[0].downcase == 'help'
       return helpers.help
     elsif instructions[0].downcase == 'learn'
