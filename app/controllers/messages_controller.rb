@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     sms = @client.messages.create(
       from: @phone,
       to: from_number,
-      body: "Learn a new Korean word! " + message_body.to_s
+      body: "Learn a new Korean word! " + message_body
     )
   end
 
