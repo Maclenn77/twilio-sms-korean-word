@@ -20,7 +20,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+#Communication gems
 gem 'twilio-ruby'
+gem 'telegram-bot-ruby'
+gem 'json'
+gem 'net-http-persistent', '~> 2.9', '>= 2.9.4'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
