@@ -30,8 +30,10 @@ class MessagesController < ApplicationController
   end
 
   def reply_message message_body
+    reply = helpers.random_word.message
     instructions = message_body.to_s.split(' ')
-    if instructions[0].downcase == 'help'
+    
+    if instructions[0].downcase == 'support'
       reply = helpers.help
     elsif instructions[0].downcase == 'learn'
       reply = learn instructions[1].downcase
